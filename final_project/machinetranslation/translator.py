@@ -18,13 +18,17 @@ language_translator = LanguageTranslatorV3(
 language_translator.set_service_url(url)
 
 def englishToFrench(englishText):
+    if englishText == None:
+        return None
     translation = language_translator.translate(
         englishText,
         model_id='en-fr').get_result()
     frenchText = translation["translations"][0]["translation"]
     return frenchText
 
-def frencgToEnglish(frenchText):
+def frenchToEnglish(frenchText):
+    if frenchText == None:
+        return None
     translation = language_translator.translate(
         frenchText,
         model_id='fr-en').get_result()
